@@ -1,0 +1,193 @@
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  z-index: 0;
+}
+
+.accordion-item {
+  margin-bottom: 1rem;
+  align-items: center;
+  width: 100%; /* accordion-item tüm satırı kapsasın */
+}
+
+/* Accordion header düzeni: sol ve sağ bölümler */
+.accordion-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.25rem;
+  background-color: inherit;
+  color: white;
+  border: none;
+  width: 100%; /* button tüm accordion-header genişliğini kaplasın */
+}
+
+/* Varsayılan arrow'u gizle */
+.accordion-button::after {
+  display: none;
+}
+
+/* Sol kısım: arrow, checkbox, name */
+.left-group {
+  display: flex;
+  align-items: center;
+}
+
+/* Sağ kısım: category, remaining time, delete */
+.right-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Arrow ikon ayarı */
+.arrow-icon {
+  font-size: 1.25rem;
+  margin-right: 0.5rem;
+  transition: transform 0.2s;
+}
+
+/* Arrow açıkken ters dönsün */
+.accordion-button:not(.collapsed) .arrow-icon {
+  transform: rotate(180deg);
+  color: white;
+}
+
+/* Checkbox default margin sıfır */
+.form-check-input {
+  margin-right: 0.5rem;
+}
+
+/* Name, category, remaining time stilleri */
+.item-name {
+  color: white;
+}
+.item-category {
+  color: white;
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+.remaining-time {
+  color: #ffc107; /* warning rengi */
+}
+
+/* Delete buton default */
+.delete-icon {
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Accordion body: açıklama alanı */
+.accordion-body {
+  height: 25vh;
+  overflow-y: auto;
+  color: white;
+  font-size: 12px;
+  padding: 1rem;
+}
+#searchInput {
+  max-width: 250px;
+}
+
+.accordion-item-container {
+  display: flex;
+  align-items: flex-start;
+  width: 100%; /* accordion-body genişliği 95% */
+}
+
+.alarm-icon {
+  color: red;
+  transition: color 0.3s;
+  width: 5%;
+  flex-shrink: 0; /* Daralma yapmaz */
+  align-self: flex-start; /* Üst hizaya sabitle */
+  text-align: center; /* Yatayda ortala */
+  cursor: pointer; /* İmleç üzerine gelince pointer şeklinde olacak */
+}
+.accordion-header {
+  flex: 0 0 100%; /* Accordion-header %85 genişlik kaplar */
+}
+
+.alarm-icon:hover {
+  color: #ffc107; /* hover rengi */
+  border-color: #ffc107 !important; /* kenarlık rengi */
+  background-color: red;
+}
+.accordion-outer-container {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+}
+input:not([type="checkbox"]),
+textarea {
+  border: 2px solid #0dcaf0 !important; /* Bootstrap info rengi */
+  border-radius: 5px;
+  padding: 0.5rem;
+  color: white;
+  background-color: transparent !important;
+  font-weight: bolder;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #0dcaf0 !important; /* placeholder'lara da info rengi */
+  opacity: 1;
+  font-weight: bolder;
+}
+.btn-info {
+  color: white;
+}
+.btn-info:hover {
+  color: white;
+}
+.btn-outline-info:hover {
+  color: white;
+  opacity: 0.5;
+}
+.btn-info:active {
+  color: white !important;
+}
+.btn-outline-info:active {
+  color: white !important;
+  opacity: 0.5;
+}
+body {
+  background-image: url("bg-1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+}
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw; /* ekran genişliği */
+  height: 100vh; /* ekran yüksekliği */
+  background-color: rgba(0, 0, 0, 0.3); /* daha zarif şeffaflık */
+  z-index: -1; /* arka planda */
+}
+
+.typing-cursor::after {
+  content: "|";
+  color: #0dcaf0;
+  font-weight: bold;
+  animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
